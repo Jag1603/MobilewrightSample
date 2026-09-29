@@ -1,0 +1,14 @@
+{
+  "name": "mobileautomation",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@mobilewright/test": "^0.0.59",
+    "@types/node": "^24.13.5",
+    "mobilewright": "^0.0.59",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "test": "mobilewright test"
+  }
+}

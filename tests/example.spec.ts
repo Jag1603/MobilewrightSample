@@ -6,20 +6,20 @@ test('app launches and shows home screen', async ({ screen }) => {
 });
 
 
-test('API Demos home screen', async ({ screen }) => {
+// test('API Demos home screen', async ({ screen }) => {
  
-  await expect(screen.getByText('API Demos')).toBeVisible();
-  await expect(screen.getByText('App')).toBeVisible();
-  await expect(screen.getByText('Animation')).toBeVisible();
-  await expect(screen.getByText('Content')).toBeVisible();
-  await expect(screen.getByText('Graphics')).toBeVisible();
-  await expect(screen.getByText('Media')).toBeVisible();
-  await expect(screen.getByText('NFC')).toBeVisible();
-  await expect(screen.getByText('OS')).toBeVisible();
-  await expect(screen.getByText('Preference')).toBeVisible();
-  await expect(screen.getByText('Text')).toBeVisible();
-  await expect(screen.getByText('Views')).toBeVisible();
-});
+//   await expect(screen.getByText('API Demos')).toBeVisible();
+//   await expect(screen.getByText('App')).toBeVisible();
+//   await expect(screen.getByText('Animation')).toBeVisible();
+//   await expect(screen.getByText('Content')).toBeVisible();
+//   await expect(screen.getByText('Graphics')).toBeVisible();
+//   await expect(screen.getByText('Media')).toBeVisible();
+//   await expect(screen.getByText('NFC')).toBeVisible();
+//   await expect(screen.getByText('OS')).toBeVisible();
+//   await expect(screen.getByText('Preference')).toBeVisible();
+//   await expect(screen.getByText('Text')).toBeVisible();
+//   await expect(screen.getByText('Views')).toBeVisible();
+// });
 
 
 

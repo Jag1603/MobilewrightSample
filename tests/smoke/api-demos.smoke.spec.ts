@@ -1,98 +1,71 @@
-// import { test, expect } from '@mobilewright/test';
-// import { ApiDemosHomePage } from '../../pages/ApiDemosHomePage';
+import { test, expect } from '@mobilewright/test';
+import { ApiDemosHomePage } from '../../pages/ApiDemosHomePage';
 
-// test.describe('API Demos - Smoke Suite', () => {
+test.describe('API Demos - Smoke Suite', () => {
 
-//   test('should launch API Demos application', async ({ screen }) => {
+  test('should launch API Demos application', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.title.isVisible()).toBe(true);
+  });
 
-//     const homePage = new ApiDemosHomePage(screen);
+  test('should display App category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.app.isVisible()).toBe(true);
+  });
 
-//     await expect(screen.getByText('API Demos')).toBeVisible({
-//       timeout: 10000
-//     });
-//   });
+  test('should display Animation category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.animation.isVisible()).toBe(true);
+  });
 
+  test('should display Content category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.content.isVisible()).toBe(true);
+  });
 
- 
+  test('should display Graphics category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.graphics.isVisible()).toBe(true);
+  });
 
+  test('should display Media category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.media.isVisible()).toBe(true);
+  });
 
-//   test('should display App category', async ({ screen }) => {
+  test('should display NFC category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.nfc.isVisible()).toBe(true);
+  });
 
-//     const homePage = new ApiDemosHomePage(screen);
+  test('should display OS category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.os.isVisible()).toBe(true);
+  });
 
-//     await expect(homePage.app).toBeVisible();
-//   });
+  test('should display Preference category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.preference.isVisible()).toBe(true);
+  });
 
+  test('should display Text category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.text.isVisible()).toBe(true);
+  });
 
-//   test('should display Animation category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.animation).toBeVisible();
-//   });
-
-
-//   test('should display Content category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.content).toBeVisible();
-//   });
-
-
-//   test('should display Graphics category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.graphics).toBeVisible();
-//   });
-
-
-//   test('should display Media category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.media).toBeVisible();
-//   });
-
-
-//   test('should display NFC category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.nfc).toBeVisible();
-//   });
-
-
-//   test('should display OS category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.os).toBeVisible();
-//   });
-
-
-//   test('should display Preference category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.preference).toBeVisible();
-//   });
-
-
-//   test('should display Text category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.text).toBeVisible();
-//   });
-
-
-//   test('should display Views category', async ({ screen }) => {
-
-//     const homePage = new ApiDemosHomePage(screen);
-
-//     await expect(homePage.views).toBeVisible();
-//   });
-
-// });
+  test('should display Views category', async ({ screen }) => {
+    const homePage = new ApiDemosHomePage(screen);
+    await homePage.waitForLoad();
+    await expect(await homePage.views.isVisible()).toBe(true);
+  });
+});

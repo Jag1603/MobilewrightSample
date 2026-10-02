@@ -1,9 +1,21 @@
 import { expect } from '@mobilewright/test';
 
+export type ApiDemosCategory =
+  | 'Accessibility'
+  | 'Animation'
+  | 'App'
+  | 'Content'
+  | 'Graphics'
+  | 'Media'
+  | 'NFC'
+  | 'OS'
+  | 'Preference'
+  | 'Text'
+  | 'Views';
+
 export class ApiDemosHomePage {
   private screen: any;
 
-  // Locators
   readonly title: any;
   readonly accessibility: any;
   readonly animation: any;
@@ -16,6 +28,8 @@ export class ApiDemosHomePage {
   readonly preference: any;
   readonly text: any;
   readonly views: any;
+
+  private readonly categoryMap: Record<ApiDemosCategory, any>;
 
   constructor(screen: any) {
     this.screen = screen;
@@ -32,47 +46,86 @@ export class ApiDemosHomePage {
     this.preference = screen.getByText('Preference');
     this.text = screen.getByText('Text');
     this.views = screen.getByText('Views');
+
+    this.categoryMap = {
+      Accessibility: this.accessibility,
+      Animation: this.animation,
+      App: this.app,
+      Content: this.content,
+      Graphics: this.graphics,
+      Media: this.media,
+      NFC: this.nfc,
+      OS: this.os,
+      Preference: this.preference,
+      Text: this.text,
+      Views: this.views,
+    };
   }
 
-  
-
-  async openApp() {
-    await this.app.click();
+  async waitForLoad(): Promise<void> {
+    await this.title.waitFor({ timeout: 15000 });
   }
 
-  async openAnimation() {
-    await this.animation.click();
+  async assertCategoryVisible(category: ApiDemosCategory): Promise<void> {
+    const locator = this.categoryMap[category];
+    await locator.waitFor({ timeout: 15000 });
+    await expect(await locator.isVisible()).toBe(true);
   }
 
-  async openContent() {
-    await this.content.click();
+  async openCategory(category: ApiDemosCategory): Promise<void> {
+    const locator = this.categoryMap[category];
+    await locator.waitFor({ timeout: 15000 });
+    await locator.tap({ timeout: 15000 });
   }
 
-  async openGraphics() {
-    await this.graphics.click();
+  async openCategoryAndVerify(category: ApiDemosCategory): Promise<void> {
+    await this.openCategory(category);
+    const destination = this.screen.getByText(category);
+    await destination.waitFor({ timeout: 15000 });
+    await expect(await destination.isVisible()).toBe(true);
   }
 
-  async openMedia() {
-    await this.media.click();
+  async openAccessibility(): Promise<void> {
+    await this.openCategory('Accessibility');
   }
 
-  async openNfc() {
-    await this.nfc.click();
+  async openApp(): Promise<void> {
+    await this.openCategory('App');
   }
 
-  async openOs() {
-    await this.os.click();
+  async openAnimation(): Promise<void> {
+    await this.openCategory('Animation');
   }
 
-  async openPreference() {
-    await this.preference.click();
+  async openContent(): Promise<void> {
+    await this.openCategory('Content');
   }
 
-  async openText() {
-    await this.text.click();
+  async openGraphics(): Promise<void> {
+    await this.openCategory('Graphics');
   }
 
-  async openViews() {
-    await this.views.click();
+  async openMedia(): Promise<void> {
+    await this.openCategory('Media');
+  }
+
+  async openNfc(): Promise<void> {
+    await this.openCategory('NFC');
+  }
+
+  async openOs(): Promise<void> {
+    await this.openCategory('OS');
+  }
+
+  async openPreference(): Promise<void> {
+    await this.openCategory('Preference');
+  }
+
+  async openText(): Promise<void> {
+    await this.openCategory('Text');
+  }
+
+  async openViews(): Promise<void> {
+    await this.openCategory('Views');
   }
 }

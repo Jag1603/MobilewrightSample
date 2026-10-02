@@ -1,6 +1,12 @@
 import { test, expect } from '@mobilewright/test';
 import { ApiDemosHomePage } from '../../pages/ApiDemosHomePage';
 
+const appBundleId = 'io.appium.android.apis';
+
+test.beforeEach(async ({ device }) => {
+  await device.launchApp(appBundleId);
+});
+
 test.describe('API Demos - Smoke Suite', () => {
 
   test('should launch API Demos application', async ({ screen }) => {
